@@ -29,7 +29,7 @@ function LearningPathsSection() {
         }
         // If there's an error or no data, keep the existing mock data
       } catch (error) {
-        console.log('Using mock data due to connection issue:', error.message)
+        console.log('Using mock data due to connection issue:', error instanceof Error ? error.message : 'Unknown error')
         // Keep existing mock data, don't set it again
       }
     }

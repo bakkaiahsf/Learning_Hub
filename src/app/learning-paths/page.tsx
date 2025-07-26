@@ -35,7 +35,7 @@ export default function LearningPathsPage() {
   }
 
   const filteredAndSortedPaths = () => {
-    let filtered = learningPaths.filter((path) => {
+    const filtered = learningPaths.filter((path) => {
       const matchesSearch = path.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            path.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            path.key_skills.some(skill => skill.toLowerCase().includes(searchTerm.toLowerCase()))

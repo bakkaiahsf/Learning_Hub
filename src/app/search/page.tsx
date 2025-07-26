@@ -1,11 +1,11 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Header from '@/components/Header'
 import LearningPathCard from '@/components/LearningPathCard'
 import { LearningPath } from '@/lib/supabase'
-import { Search, BookOpen, Clock, Filter } from 'lucide-react'
+import { Search, BookOpen, Filter } from 'lucide-react'
 
 interface SearchResults {
   learning_paths: LearningPath[]
@@ -17,7 +17,7 @@ interface SearchResults {
   }>
 }
 
-export default function SearchPage() {
+function SearchContent() {
   const searchParams = useSearchParams()
   const query = searchParams.get('q') || ''
   const [results, setResults] = useState<SearchResults>({ learning_paths: [], modules: [] })
@@ -258,5 +258,15 @@ export default function SearchPage() {
         )}
       </main>
     </div>
+  )
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+    </div>}>
+      <SearchContent />
+    </Suspense>
   )
 }

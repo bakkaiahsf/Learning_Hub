@@ -1,7 +1,7 @@
 'use client'
 
 import Header from '@/components/Header'
-import { BarChart3, BookOpen, Clock, Trophy, Target, TrendingUp, Calendar, CheckCircle } from 'lucide-react'
+import { BookOpen, Clock, Trophy, Target, TrendingUp, Calendar, CheckCircle } from 'lucide-react'
 
 export default function DashboardPage() {
   // Mock user data - in real app, this would come from API/Supabase
@@ -156,7 +156,7 @@ export default function DashboardPage() {
                 </div>
                 <p className="text-sm text-gray-600 mt-3">
                   {userStats.hoursLearned >= userStats.weeklyGoal 
-                    ? "🎉 Great job! You've met your weekly goal!" 
+                    ? "🎉 Great job! You&apos;ve met your weekly goal!" 
                     : `${userStats.weeklyGoal - userStats.hoursLearned} hours left to reach your goal`}
                 </p>
               </div>
