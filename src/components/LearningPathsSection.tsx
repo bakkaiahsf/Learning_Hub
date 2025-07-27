@@ -53,28 +53,33 @@ function LearningPathsSection() {
   }
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-20 bg-gradient-to-b from-white to-neutral-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Choose Your Learning Path</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-neutral-900 mb-6">Choose Your Learning Path</h2>
+          <p className="text-xl text-neutral-600 max-w-4xl mx-auto leading-relaxed">
             Structured learning journeys designed for different roles and career goals. 
             Start where you are, go where you want to be.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {learningPaths.map((path, index) => (
             <LearningPathCard 
               key={path.id} 
               path={path} 
-              progress={index === 1 ? 25 : undefined} // Mock progress for demo
+              progress={index === 1 ? 25 : undefined}
             />
           ))}
         </div>
 
         <div className="text-center">
-          <button className="bg-green-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-green-700 transition-colors">
+          <button 
+            onClick={() => {
+              console.log('View all learning paths clicked')
+            }}
+            className="bg-gradient-to-r from-success/80 to-success text-white px-10 py-4 rounded-xl text-lg font-semibold hover:from-success hover:to-success/90 transition-all duration-200 shadow-medium hover:shadow-large transform hover:scale-105 cursor-pointer"
+          >
             View All Learning Paths
           </button>
         </div>

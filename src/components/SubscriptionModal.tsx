@@ -59,62 +59,62 @@ export default function SubscriptionModal({ isOpen, onClose }: SubscriptionModal
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-xl shadow-2xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in p-4">
+      <div className="bg-white rounded-2xl shadow-large w-full max-w-2xl max-h-[90vh] overflow-y-auto border border-neutral-200 animate-scale-in">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b">
-          <div className="flex items-center space-x-3">
-            <div className="bg-blue-100 p-2 rounded-lg">
-              <Bell className="h-6 w-6 text-blue-600" />
+        <div className="flex items-center justify-between p-8 border-b border-neutral-200">
+          <div className="flex items-center space-x-4">
+            <div className="bg-gradient-to-br from-primary-100 to-accent-100 p-3 rounded-xl">
+              <Bell className="h-6 w-6 text-primary-600" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900">Stay Updated</h2>
+            <h2 className="text-3xl font-bold text-neutral-900">Stay Updated</h2>
           </div>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 transition-colors"
+            className="text-neutral-400 hover:text-neutral-600 transition-colors p-2 hover:bg-neutral-100 rounded-xl"
           >
             <X className="h-6 w-6" />
           </button>
         </div>
 
         {success ? (
-          <div className="p-8 text-center">
-            <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Check className="h-8 w-8 text-green-600" />
+          <div className="p-10 text-center animate-fade-in">
+            <div className="bg-gradient-to-br from-success/10 to-success/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 border border-success/20">
+              <Check className="h-10 w-10 text-success" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Thanks for subscribing!</h3>
-            <p className="text-gray-600">We'll keep you updated on new features and content.</p>
+            <h3 className="text-2xl font-bold text-neutral-900 mb-3">Thanks for subscribing!</h3>
+            <p className="text-lg text-neutral-600">We'll keep you updated on new features and content.</p>
           </div>
         ) : (
-          <div className="p-6">
+          <div className="p-8">
             {/* Plan Selection */}
-            <div className="mb-6">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">Choose Your Plan</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="mb-8">
+              <h3 className="text-xl font-bold text-neutral-900 mb-6">Choose Your Plan</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Free Plan */}
                 <div 
-                  className={`border-2 rounded-xl p-4 cursor-pointer transition-all ${
+                  className={`border-2 rounded-2xl p-6 cursor-pointer transition-all duration-200 ${
                     selectedPlan === 'free' 
-                      ? 'border-blue-500 bg-blue-50' 
-                      : 'border-gray-200 hover:border-gray-300'
+                      ? 'border-primary-500 bg-primary-50 shadow-medium' 
+                      : 'border-neutral-200 hover:border-neutral-300 hover:shadow-soft'
                   }`}
                   onClick={() => setSelectedPlan('free')}
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <h4 className="font-bold text-gray-900">Free Access</h4>
-                    <div className="text-2xl font-bold text-gray-900">Free</div>
+                  <div className="flex items-center justify-between mb-4">
+                    <h4 className="font-bold text-neutral-900 text-lg">Free Access</h4>
+                    <div className="text-3xl font-bold text-neutral-900">Free</div>
                   </div>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    <li className="flex items-center space-x-2">
-                      <Check className="h-4 w-4 text-green-500" />
+                  <ul className="space-y-3 text-sm text-neutral-600">
+                    <li className="flex items-center space-x-3">
+                      <Check className="h-4 w-4 text-success flex-shrink-0" />
                       <span>Access to basic learning paths</span>
                     </li>
-                    <li className="flex items-center space-x-2">
-                      <Check className="h-4 w-4 text-green-500" />
+                    <li className="flex items-center space-x-3">
+                      <Check className="h-4 w-4 text-success flex-shrink-0" />
                       <span>Community discussions</span>
                     </li>
-                    <li className="flex items-center space-x-2">
-                      <Check className="h-4 w-4 text-green-500" />
+                    <li className="flex items-center space-x-3">
+                      <Check className="h-4 w-4 text-success flex-shrink-0" />
                       <span>Monthly newsletter</span>
                     </li>
                   </ul>
@@ -122,37 +122,37 @@ export default function SubscriptionModal({ isOpen, onClose }: SubscriptionModal
 
                 {/* Pro Plan */}
                 <div 
-                  className={`border-2 rounded-xl p-4 cursor-pointer transition-all relative ${
+                  className={`border-2 rounded-2xl p-6 cursor-pointer transition-all duration-200 relative ${
                     selectedPlan === 'pro' 
-                      ? 'border-purple-500 bg-purple-50' 
-                      : 'border-gray-200 hover:border-gray-300'
+                      ? 'border-accent-500 bg-accent-50 shadow-medium' 
+                      : 'border-neutral-200 hover:border-neutral-300 hover:shadow-soft'
                   }`}
                   onClick={() => setSelectedPlan('pro')}
                 >
-                  <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-gradient-to-r from-accent-600 to-accent-700 text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-medium">
                       Coming Soon
                     </span>
                   </div>
-                  <div className="flex items-center justify-between mb-3">
-                    <h4 className="font-bold text-gray-900">Pro Access</h4>
-                    <div className="text-2xl font-bold text-gray-900">$29/mo</div>
+                  <div className="flex items-center justify-between mb-4">
+                    <h4 className="font-bold text-neutral-900 text-lg">Pro Access</h4>
+                    <div className="text-3xl font-bold text-neutral-900">$29/mo</div>
                   </div>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    <li className="flex items-center space-x-2">
-                      <Check className="h-4 w-4 text-green-500" />
+                  <ul className="space-y-3 text-sm text-neutral-600">
+                    <li className="flex items-center space-x-3">
+                      <Check className="h-4 w-4 text-success flex-shrink-0" />
                       <span>Everything in Free</span>
                     </li>
-                    <li className="flex items-center space-x-2">
-                      <Check className="h-4 w-4 text-green-500" />
+                    <li className="flex items-center space-x-3">
+                      <Check className="h-4 w-4 text-success flex-shrink-0" />
                       <span>AI-powered personalization</span>
                     </li>
-                    <li className="flex items-center space-x-2">
-                      <Check className="h-4 w-4 text-green-500" />
+                    <li className="flex items-center space-x-3">
+                      <Check className="h-4 w-4 text-success flex-shrink-0" />
                       <span>Priority support</span>
                     </li>
-                    <li className="flex items-center space-x-2">
-                      <Check className="h-4 w-4 text-green-500" />
+                    <li className="flex items-center space-x-3">
+                      <Check className="h-4 w-4 text-success flex-shrink-0" />
                       <span>Advanced analytics</span>
                     </li>
                   </ul>
@@ -161,35 +161,47 @@ export default function SubscriptionModal({ isOpen, onClose }: SubscriptionModal
             </div>
 
             {/* Email Form */}
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-semibold text-neutral-700 mb-3">
                   Email Address
                 </label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                  <Mail className="absolute left-4 top-4 h-5 w-5 text-neutral-400" />
                   <input
                     id="email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full pl-12 pr-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:outline-none bg-neutral-50 hover:bg-white transition-all duration-200 text-lg"
                     placeholder="Enter your email address"
                     required
                   />
                 </div>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-4">
-                <div className="flex items-start space-x-3">
-                  <Star className="h-5 w-5 text-yellow-500 mt-0.5" />
+              <div className="bg-gradient-to-br from-neutral-50 to-primary-50 rounded-xl p-6 border border-neutral-200">
+                <div className="flex items-start space-x-4">
+                  <Star className="h-6 w-6 text-warning mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-medium text-gray-900">What you'll get:</h4>
-                    <ul className="text-sm text-gray-600 mt-2 space-y-1">
-                      <li>• Early access to new learning paths</li>
-                      <li>• Weekly learning tips and best practices</li>
-                      <li>• Exclusive community events and webinars</li>
-                      <li>• No spam, unsubscribe anytime</li>
+                    <h4 className="font-semibold text-neutral-900 mb-3">What you'll get:</h4>
+                    <ul className="text-sm text-neutral-600 space-y-2">
+                      <li className="flex items-start space-x-2">
+                        <span className="text-primary-600 font-bold">•</span>
+                        <span>Early access to new learning paths</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <span className="text-primary-600 font-bold">•</span>
+                        <span>Weekly learning tips and best practices</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <span className="text-primary-600 font-bold">•</span>
+                        <span>Exclusive community events and webinars</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <span className="text-primary-600 font-bold">•</span>
+                        <span>No spam, unsubscribe anytime</span>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -198,18 +210,18 @@ export default function SubscriptionModal({ isOpen, onClose }: SubscriptionModal
               <button
                 type="submit"
                 disabled={loading}
-                className={`w-full py-3 rounded-lg font-medium transition-colors ${
+                className={`w-full py-4 rounded-xl font-semibold transition-all duration-200 shadow-medium hover:shadow-large transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-lg ${
                   selectedPlan === 'free'
-                    ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                    : 'bg-purple-600 hover:bg-purple-700 text-white'
-                } disabled:opacity-50 disabled:cursor-not-allowed`}
+                    ? 'bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 text-white'
+                    : 'bg-gradient-to-r from-accent-600 to-accent-700 hover:from-accent-700 hover:to-accent-800 text-white'
+                }`}
               >
                 {loading ? 'Subscribing...' : 
                  selectedPlan === 'free' ? 'Get Free Access' : 'Join Waitlist for Pro'}
               </button>
             </form>
 
-            <p className="text-xs text-gray-500 text-center mt-4">
+            <p className="text-sm text-neutral-500 text-center mt-6">
               By subscribing, you agree to our Terms of Service and Privacy Policy.
             </p>
           </div>

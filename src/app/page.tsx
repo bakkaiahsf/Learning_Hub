@@ -6,6 +6,10 @@ const LearningPathsSection = dynamic(() => import('@/components/LearningPathsSec
   loading: () => <div className="py-16 bg-white"><div className="max-w-7xl mx-auto px-4 text-center"><p>Loading learning paths...</p></div></div>
 })
 
+const AIFeaturesHub = dynamic(() => import('@/components/AIFeaturesHub'), {
+  loading: () => <div className="py-16 bg-gradient-to-b from-white to-neutral-50"><div className="max-w-7xl mx-auto px-4 text-center"><p>Loading AI-powered features...</p></div></div>
+})
+
 const AIFeaturesSection = dynamic(() => import('@/components/AIFeaturesSection'), {
   loading: () => <div className="py-16 bg-gray-50"><div className="max-w-7xl mx-auto px-4 text-center"><p>Loading AI features...</p></div></div>
 })
@@ -16,6 +20,7 @@ export default function Home() {
       <Header />
       <HeroSection />
       <LearningPathsSection />
+      <AIFeaturesHub />
       <AIFeaturesSection />
     </main>
   )

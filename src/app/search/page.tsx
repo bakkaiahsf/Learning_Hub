@@ -82,33 +82,33 @@ function SearchContent() {
   const totalResults = results.learning_paths.length + results.modules.length
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-white to-neutral-50 overflow-x-hidden">
       <Header />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Search Header */}
-        <div className="bg-white rounded-xl shadow-sm border p-6 mb-8">
+        <div className="bg-white rounded-xl shadow-soft border border-neutral-200 p-6 mb-8">
           <div className="flex items-center space-x-4 mb-4">
-            <Search className="h-6 w-6 text-blue-600" />
-            <h1 className="text-2xl font-bold text-gray-900">Search Results</h1>
+            <Search className="h-6 w-6 text-primary-600" />
+            <h1 className="text-2xl font-bold text-neutral-900">Search Results</h1>
           </div>
           
           {/* Search Form */}
-          <form onSubmit={handleNewSearch} className="flex space-x-4 mb-4">
+          <form onSubmit={handleNewSearch} className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 mb-4">
             <div className="flex-1 relative">
               <input
                 type="text"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 placeholder="Search for learning paths, modules, or topics..."
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:outline-none bg-neutral-50 hover:bg-white transition-all duration-200"
               />
-              <Search className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
+              <Search className="absolute left-3 top-3.5 h-5 w-5 text-neutral-400" />
             </div>
             <button
               type="submit"
               disabled={loading}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-gradient-to-r from-primary-600 to-accent-600 text-white px-6 py-3 rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-medium hover:shadow-large font-medium whitespace-nowrap"
             >
               Search
             </button>
