@@ -1,0 +1,29 @@
+<div class="salesforce-selector">
+  <h2>🚀 Salesforce Learning Assistant</h2>
+  
+  <div class="selector-card">
+    <label>Salesforce Product:</label>
+    <select id="productDropdown" class="searchable-dropdown">
+      <option value="">-- Select Product --</option>
+      <!-- Populated dynamically from YAML config -->
+    </select>
+  </div>
+  
+  <div class="selector-card">
+    <label>Learning Purpose:</label>
+    <select id="purposeSelector">
+      <option value="certification_prep">Certification Preparation</option>
+      <option value="job_interview">Job Interview Prep</option>
+      <option value="project_implementation">Project Implementation</option>
+      <!-- Other options -->
+    </select>
+  </div>
+  
+  <button id="searchBtn" class="sf-button">
+    <i class="fa fa-search"></i> Find Learning Resources
+  </button>
+</div>
+
+<div id="resultsContainer" class="results-grid">
+  <!-- AI-generated content will appear here -->
+</div>
