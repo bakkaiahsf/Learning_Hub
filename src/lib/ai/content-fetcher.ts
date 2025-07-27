@@ -13,6 +13,7 @@ interface ContentMetadata {
   badges?: string[]
   last_updated?: string
   author?: string
+  certification?: string
 }
 
 interface FetchedContent {
