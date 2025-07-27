@@ -1,0 +1,103 @@
+# Salesforce Learning Resources Generator
+version: 2.1
+config:
+  dynamic_product_source: "https://www.salesforce.com/products/"
+  ui:
+    product_selector:
+      type: "searchable_dropdown"
+      label: "🔍 Select Salesforce Product/Certification"
+      placeholder: "Type to search 150+ products..."
+      groups:
+        - name: "Core Products"
+          options:
+            - "Salesforce CRM"
+            - "Sales Cloud"
+            - "Service Cloud"
+            - "Marketing Cloud"
+            - "Commerce Cloud"
+            - "Experience Cloud"
+            - "Health Cloud"
+            - "Financial Services Cloud"
+            - "Einstein Analytics"
+            - "MuleSoft"
+            - "Tableau"
+            - "Slack"
+        
+        - name: "Popular Certifications"
+          options:
+            - "Salesforce Administrator"
+            - "Platform Developer I"
+            - "Platform Developer II"
+            - "Advanced Administrator"
+            - "Sales Cloud Consultant"
+            - "Service Cloud Consultant"
+            - "Marketing Cloud Administrator"
+            - "Platform App Builder"
+            - "Data Architect"
+            - "Integration Architect"
+            - "AI Associate"
+            - "AI Consultant"
+            
+        - name: "Specialized Products"
+          options:
+            - "Salesforce Genie"
+            - "Field Service"
+            - "Revenue Cloud"
+            - "Sustainability Cloud"
+            - "Nonprofit Cloud"
+            - "Education Cloud"
+            - "Public Sector Solutions"
+            - "Manufacturing Cloud"
+            - "Energy & Utilities Cloud"
+            - "Automotive Cloud"
+            - "Vlocity"
+            - "Agentforce"
+            - "Pardot"
+            - "CPQ Specialist"
+            - "OmniStudio Developer"
+      
+    purpose_selector:
+      label: "🎯 Your Learning Goal"
+      options:
+        - "certification_prep"
+        - "job_interview"
+        - "project_implementation"
+        - "skill_development"
+        - "career_switch"
+        - "solution_design"
+      
+  ai_prompt:
+    resource_finder: |
+      Act as a Salesforce Learning Architect. For a user preparing for "{selected_product}" with goal of "{selected_purpose}":
+      
+      1. Identify key resource types:
+         - Official documentation
+         - Trailhead learning paths
+         - Certification guides
+         - Implementation best practices
+         - Community discussions
+         - Video tutorials
+      
+      2. Search current web for:
+         "Salesforce {selected_product} {selected_purpose} resources"
+         "{selected_product} implementation best practices"
+         "{selected_product} learning path site:trailhead.salesforce.com"
+      
+      3. Format strictly as:
+        ### 🔗 Official Resources
+        - [Resource Title](https://example.com)
+        
+        ### 🛣️ Learning Paths
+        - [Trail Name](https://trailhead.com)
+        
+        ### 💡 Tips & Best Practices
+        - [Blog Title](https://blog.com)
+        
+      4. Rules:
+        - Return only hyperlinked titles (no descriptions)
+        - Include only active URLs (status 200)
+        - Prioritize Salesforce domains (trailhead.salesforce.com, help.salesforce.com)
+        - Max 10 resources total
+        - Add ⭐ to essential resources
+        - Include dates if available (Updated 2024)
+        - Skip categories with <2 resources

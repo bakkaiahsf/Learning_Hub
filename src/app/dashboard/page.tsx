@@ -1,6 +1,7 @@
 'use client'
 
 import Header from '@/components/Header'
+import SalesforceNewsFeed from '@/components/SalesforceNewsFeed'
 import { BookOpen, Clock, Trophy, Target, TrendingUp, Calendar, CheckCircle } from 'lucide-react'
 
 export default function DashboardPage() {
@@ -101,6 +102,11 @@ export default function DashboardPage() {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Salesforce News Feed - Full Width */}
+          <div className="mb-8">
+            <SalesforceNewsFeed />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
